@@ -107,7 +107,6 @@
                     <Style>
                       <FontSize>16pt</FontSize>
                       <FontWeight>Bold</FontWeight>
-                      <Color>#333333</Color>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -139,9 +138,7 @@
                 <TextRuns>
                   <TextRun>
                     <Value>=iif(Parameters!CertificateDate.Value=""," "," Issued Date: " &amp; Parameters!CertificateDate.Value)</Value>
-                    <Style>
-                      <Color>#555555</Color>
-                    </Style>
+                    <Style />
                   </TextRun>
                 </TextRuns>
                 <Style>
@@ -175,7 +172,6 @@
                     <Value>This is to certify that </Value>
                     <Style>
                       <FontSize>11pt</FontSize>
-                      <Color>#333333</Color>
                       <LineHeight>16pt</LineHeight>
                     </Style>
                   </TextRun>
@@ -184,7 +180,6 @@
                     <Style>
                       <FontSize>11pt</FontSize>
                       <FontWeight>Bold</FontWeight>
-                      <Color>#333333</Color>
                       <LineHeight>16pt</LineHeight>
                     </Style>
                   </TextRun>
@@ -192,7 +187,6 @@
                     <Value> is a permanent employee of JB Connect Ltd., holding the position </Value>
                     <Style>
                       <FontSize>11pt</FontSize>
-                      <Color>#333333</Color>
                       <LineHeight>16pt</LineHeight>
                     </Style>
                   </TextRun>
@@ -201,7 +195,6 @@
                     <Style>
                       <FontSize>11pt</FontSize>
                       <FontWeight>Bold</FontWeight>
-                      <Color>#333333</Color>
                       <LineHeight>16pt</LineHeight>
                     </Style>
                   </TextRun>
@@ -209,7 +202,6 @@
                     <Value>. </Value>
                     <Style>
                       <FontSize>11pt</FontSize>
-                      <Color>#333333</Color>
                       <LineHeight>16pt</LineHeight>
                     </Style>
                   </TextRun>
@@ -218,7 +210,6 @@
                     <Style>
                       <FontSize>11pt</FontSize>
                       <FontWeight>Normal</FontWeight>
-                      <Color>#333333</Color>
                       <LineHeight>16pt</LineHeight>
                     </Style>
                   </TextRun>
@@ -226,7 +217,6 @@
                     <Value> joined the company on </Value>
                     <Style>
                       <FontSize>11pt</FontSize>
-                      <Color>#333333</Color>
                       <LineHeight>16pt</LineHeight>
                     </Style>
                   </TextRun>
@@ -235,15 +225,28 @@
                     <Style>
                       <FontSize>11pt</FontSize>
                       <FontWeight>Normal</FontWeight>
-                      <Color>#333333</Color>
                       <LineHeight>16pt</LineHeight>
                     </Style>
                   </TextRun>
                   <TextRun>
-                    <Value>. His current monthly gross salary amount is </Value>
+                    <Value>. </Value>
                     <Style>
                       <FontSize>11pt</FontSize>
-                      <Color>#333333</Color>
+                      <LineHeight>16pt</LineHeight>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>= iif(Fields!Salutation.Value="Mr.","His","Her")</Value>
+                    <Style>
+                      <FontSize>11pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <LineHeight>16pt</LineHeight>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value> current monthly gross salary amount is </Value>
+                    <Style>
+                      <FontSize>11pt</FontSize>
                       <LineHeight>16pt</LineHeight>
                     </Style>
                   </TextRun>
@@ -252,14 +255,12 @@
                     <Style>
                       <FontWeight>Bold</FontWeight>
                       <Format>#,0.00</Format>
-                      <Color>#333333</Color>
                     </Style>
                   </TextRun>
                   <TextRun>
                     <Value>/= BDT, with an additional monthly transport allowance of </Value>
                     <Style>
                       <FontSize>11pt</FontSize>
-                      <Color>#333333</Color>
                       <LineHeight>16pt</LineHeight>
                     </Style>
                   </TextRun>
@@ -268,7 +269,6 @@
                     <Style>
                       <FontWeight>Bold</FontWeight>
                       <Format>#,0.00</Format>
-                      <Color>#333333</Color>
                     </Style>
                   </TextRun>
                   <TextRun>
@@ -276,15 +276,36 @@
                     <Style>
                       <FontSize>11pt</FontSize>
                       <FontWeight>Normal</FontWeight>
-                      <Color>#333333</Color>
                       <LineHeight>16pt</LineHeight>
                     </Style>
                   </TextRun>
                   <TextRun>
-                    <Value> BDT. His total monthly salary is </Value>
+                    <Value> BDT. </Value>
                     <Style>
                       <FontSize>11pt</FontSize>
-                      <Color>#333333</Color>
+                      <LineHeight>16pt</LineHeight>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>= iif(Fields!Salutation.Value="Mr.","His","Her")</Value>
+                    <Style>
+                      <FontSize>11pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <LineHeight>16pt</LineHeight>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value xml:space="preserve"> </Value>
+                    <Style>
+                      <FontSize>11pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <LineHeight>16pt</LineHeight>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>total monthly salary is </Value>
+                    <Style>
+                      <FontSize>11pt</FontSize>
                       <LineHeight>16pt</LineHeight>
                     </Style>
                   </TextRun>
@@ -293,14 +314,12 @@
                     <Style>
                       <FontWeight>Bold</FontWeight>
                       <Format>#,0.00</Format>
-                      <Color>#333333</Color>
                     </Style>
                   </TextRun>
                   <TextRun>
                     <Value>/= BDT. The current monthly salary details are as follows:</Value>
                     <Style>
                       <FontSize>11pt</FontSize>
-                      <Color>#333333</Color>
                       <LineHeight>16pt</LineHeight>
                     </Style>
                   </TextRun>
@@ -427,9 +446,7 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>Basic Salary</Value>
-                                  <Style>
-                                    <Color>#333333</Color>
-                                  </Style>
+                                  <Style />
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -462,7 +479,6 @@
                                   <Value>=Format(Fields!BasicSalary.Value, "N2")</Value>
                                   <Style>
                                     <Format>#,0.00</Format>
-                                    <Color>#333333</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -501,9 +517,7 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>House Allowance</Value>
-                                  <Style>
-                                    <Color>#333333</Color>
-                                  </Style>
+                                  <Style />
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -536,7 +550,6 @@
                                   <Value>=Format(Fields!HouseAllowance.Value, "N2")</Value>
                                   <Style>
                                     <Format>#,0.00</Format>
-                                    <Color>#333333</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -575,9 +588,7 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>Medical Allowance</Value>
-                                  <Style>
-                                    <Color>#333333</Color>
-                                  </Style>
+                                  <Style />
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -610,7 +621,6 @@
                                   <Value>=Format(Fields!MedicalAllowance.Value, "N2")</Value>
                                   <Style>
                                     <Format>#,0.00</Format>
-                                    <Color>#333333</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -649,9 +659,7 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>Travel Allowance</Value>
-                                  <Style>
-                                    <Color>#333333</Color>
-                                  </Style>
+                                  <Style />
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -684,7 +692,6 @@
                                   <Value>=Format(Fields!TravelAllowance.Value, "N2")</Value>
                                   <Style>
                                     <Format>#,0.00</Format>
-                                    <Color>#333333</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -723,9 +730,7 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>Miscellaneous</Value>
-                                  <Style>
-                                    <Color>#333333</Color>
-                                  </Style>
+                                  <Style />
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -758,7 +763,6 @@
                                   <Value>=Format(Fields!Miscellaneous.Value, "N2")</Value>
                                   <Style>
                                     <Format>#,0.00</Format>
-                                    <Color>#333333</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -799,7 +803,6 @@
                                   <Value>Total Monthly Gross Salary</Value>
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
-                                    <Color>#333333</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -838,7 +841,6 @@
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
                                     <Format>#,0.00</Format>
-                                    <Color>#333333</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -879,9 +881,7 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>Transport Allowance (Monthly)</Value>
-                                  <Style>
-                                    <Color>#333333</Color>
-                                  </Style>
+                                  <Style />
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -914,7 +914,6 @@
                                   <Value>=Format(Fields!TransportAllowance.Value, "N2")</Value>
                                   <Style>
                                     <Format>#,0.00</Format>
-                                    <Color>#333333</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -953,9 +952,7 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>Performance/Team Lead/CR Allowance (Monthly)</Value>
-                                  <Style>
-                                    <Color>#333333</Color>
-                                  </Style>
+                                  <Style />
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -988,7 +985,6 @@
                                   <Value>=Format(Fields!PerformanceAllowance.Value, "N2")</Value>
                                   <Style>
                                     <Format>#,0.00</Format>
-                                    <Color>#333333</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1010,7 +1006,6 @@
                             <PaddingBottom>3pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
@@ -1030,7 +1025,6 @@
                                   <Value>Total Monthly Salary</Value>
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
-                                    <Color>#333333</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1069,7 +1063,6 @@
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
                                     <Format>#,0.00</Format>
-                                    <Color>#333333</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1110,9 +1103,7 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>Monthly Tax Deduction</Value>
-                                  <Style>
-                                    <Color>#333333</Color>
-                                  </Style>
+                                  <Style />
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -1145,7 +1136,6 @@
                                   <Value>=Format(Fields!MonthlyTaxDeduction.Value, "N2")</Value>
                                   <Style>
                                     <Format>#,0.00</Format>
-                                    <Color>#333333</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1187,7 +1177,6 @@
                                   <Style>
                                     <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
-                                    <Color>#333333</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1226,7 +1215,6 @@
                                     <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Format>#,0.00</Format>
-                                    <Color>#333333</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1312,21 +1300,18 @@
                     <Style>
                       <FontStyle>Italic</FontStyle>
                       <FontWeight>Bold</FontWeight>
-                      <Color>#555555</Color>
                     </Style>
                   </TextRun>
                   <TextRun>
                     <Value xml:space="preserve"> </Value>
                     <Style>
                       <FontStyle>Italic</FontStyle>
-                      <Color>#555555</Color>
                     </Style>
                   </TextRun>
                   <TextRun>
                     <Value>=" " &amp; Fields!NetSalaryInWords.Value &amp; " Taka Only (Monthly)."</Value>
                     <Style>
                       <FontStyle>Italic</FontStyle>
-                      <Color>#555555</Color>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -1359,7 +1344,6 @@
                     <Value>="In addition to the monthly salary, " &amp; Fields!Salutation.Value &amp; " " &amp; Fields!LastName.Value &amp; " is entitled to receive two festival bonuses (Eid bonuses) and yearly performance bonus as per company policy."</Value>
                     <Style>
                       <FontSize>11pt</FontSize>
-                      <Color>#333333</Color>
                       <LineHeight>16pt</LineHeight>
                     </Style>
                   </TextRun>
@@ -1393,7 +1377,6 @@
                     <Value>Sincerely,</Value>
                     <Style>
                       <FontSize>11pt</FontSize>
-                      <Color>#333333</Color>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -1440,7 +1423,6 @@
                     <Style>
                       <FontSize>11pt</FontSize>
                       <FontWeight>Bold</FontWeight>
-                      <Color>#333333</Color>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -1450,9 +1432,7 @@
                 <TextRuns>
                   <TextRun>
                     <Value>Manager, HR &amp; Admin</Value>
-                    <Style>
-                      <Color>#555555</Color>
-                    </Style>
+                    <Style />
                   </TextRun>
                 </TextRuns>
                 <Style />
@@ -1461,9 +1441,7 @@
                 <TextRuns>
                   <TextRun>
                     <Value>JB Connect Ltd.</Value>
-                    <Style>
-                      <Color>#555555</Color>
-                    </Style>
+                    <Style />
                   </TextRun>
                 </TextRuns>
                 <Style />
@@ -1472,9 +1450,7 @@
                 <TextRuns>
                   <TextRun>
                     <Value>Contact: +8801601699646</Value>
-                    <Style>
-                      <Color>#555555</Color>
-                    </Style>
+                    <Style />
                   </TextRun>
                 </TextRuns>
                 <Style />
@@ -1483,9 +1459,7 @@
                 <TextRuns>
                   <TextRun>
                     <Value>Email: hr@jbc-bd.com</Value>
-                    <Style>
-                      <Color>#555555</Color>
-                    </Style>
+                    <Style />
                   </TextRun>
                 </TextRuns>
                 <Style />

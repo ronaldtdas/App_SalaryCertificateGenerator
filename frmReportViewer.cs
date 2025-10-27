@@ -49,6 +49,31 @@ namespace App_SalaryCertificate
             {
                 ShowReport(_employeeData);
             }
+            
+            // Center the ReportViewer in the container
+            CenterReportViewer();
+            
+            // Enable print layout view by default
+            if (rv != null)
+            {
+                rv.ZoomMode = ZoomMode.Percent;
+                rv.ZoomPercent = 100;
+                
+                // Click the Print Layout button by default
+                TogglePrintLayout();
+            }
+        }
+
+        private void CenterReportViewer()
+        {
+            if (containerPanel != null && rv != null)
+            {
+                // Calculate center position
+                int centerX = (containerPanel.Width - rv.Width) / 2;
+                if (centerX < 0) centerX = 0;
+                
+                rv.Location = new Point(centerX, 10);
+            }
         }
 
         // Helper function to convert numbers to words
@@ -66,7 +91,7 @@ namespace App_SalaryCertificate
 
             if (intPart == 0 && fractionalPart == 0) return "Zero";
 
-            StringBuilder words = new StringBuilder();
+            List<string> parts = new List<string>();
             int scaleIndex = 0;
 
             while (intPart > 0)
@@ -74,14 +99,18 @@ namespace App_SalaryCertificate
                 long remainder = intPart % 1000;
                 if (remainder != 0)
                 {
-                    words.Insert(0, " " + scales[scaleIndex]);
-                    words.Insert(0, ConvertThreeDigits((int)remainder));
+                    string part = ConvertThreeDigits((int)remainder);
+                    if (scaleIndex > 0)
+                    {
+                        part += " " + scales[scaleIndex];
+                    }
+                    parts.Insert(0, part);
                 }
                 intPart /= 1000;
                 scaleIndex++;
             }
 
-            string result = words.ToString().Trim();
+            string result = string.Join(" ", parts);
             if (fractionalPart > 0)
             {
                 result += " and " + fractionalPart.ToString("D2") + "/100";
@@ -403,78 +432,40 @@ namespace App_SalaryCertificate
             System.Diagnostics.Debug.WriteLine("Report refreshed successfully");
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private void TogglePrintLayout()
         {
+            if (rv == null) return;
+            
+            // Find and click the Print Layout button in the ReportViewer toolbar
             try
             {
-                if (_employeeData == null)
+                var toolbar = rv.Controls.Find("ReportViewerToolbar", true).FirstOrDefault();
+                if (toolbar != null)
                 {
-                    MessageBox.Show("No employee data available", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                // Render the current employee's report as PDF
-                ReportViewer reportViewer = rv;
-                if (reportViewer == null || reportViewer.LocalReport == null)
-                {
-                    MessageBox.Show("Report is not loaded", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                byte[] pdf = reportViewer.LocalReport.Render("PDF");
-
-                // Show save dialog
-                using (SaveFileDialog saveDialog = new SaveFileDialog())
-                {
-                    saveDialog.Filter = "PDF Files|*.pdf";
-                    saveDialog.FileName = $"{_employeeData.FirstName}_{_employeeData.LastName}_SalaryCertificate.pdf";
-                    saveDialog.Title = "Save Salary Certificate";
-
-                    if (saveDialog.ShowDialog() == DialogResult.OK)
+                    // Iterate through toolbar controls to find the Print Layout button
+                    foreach (Control control in toolbar.Controls)
                     {
-                        // Save the PDF file
-                        File.WriteAllBytes(saveDialog.FileName, pdf);
-
-                        // Show success message
-                        MessageBox.Show("PDF saved successfully!", "Success",
-                            MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        // Open the PDF file
-                        System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo()
+                        if (control is ToolStrip toolStrip)
                         {
-                            FileName = saveDialog.FileName,
-                            UseShellExecute = true
-                        });
+                            foreach (ToolStripItem item in toolStrip.Items)
+                            {
+                                // Print Layout button typically has tooltip or name containing "Print Layout"
+                                if (item is ToolStripButton button && 
+                                    (item.ToolTipText?.Contains("Print Layout") == true || 
+                                     item.Name?.Contains("PrintLayout") == true))
+                                {
+                                    button.PerformClick();
+                                    System.Diagnostics.Debug.WriteLine("Print Layout button clicked");
+                                    return;
+                                }
+                            }
+                        }
                     }
                 }
             }
             catch (Exception ex)
             {
-                Clipboard.SetText(ex.ToString());
-                MessageBox.Show($"Error saving PDF: {ex.Message}\n\n{ex.StackTrace}", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-
-        private void btnPrint_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                ReportViewer reportViewer = rv;
-                if (reportViewer == null)
-                {
-                    MessageBox.Show("Report Viewer is not initialized", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                reportViewer.PrintDialog();
-            }
-            catch (Exception ex)
-            {
-                Clipboard.SetText(ex.ToString());
-                MessageBox.Show($"Error printing: {ex.Message}\n\n{ex.StackTrace}", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                System.Diagnostics.Debug.WriteLine($"Error toggling print layout: {ex.Message}");
             }
         }
     }

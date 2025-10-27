@@ -28,61 +28,45 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			btnSave = new Button();
-			btnPrint = new Button();
 			rv = new Microsoft.Reporting.WinForms.ReportViewer();
+			containerPanel = new Panel();
+			containerPanel.SuspendLayout();
 			SuspendLayout();
 			// 
-			// btnSave
+			// containerPanel
 			// 
-			btnSave.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			btnSave.Location = new Point(680, 744);
-			btnSave.Name = "btnSave";
-			btnSave.Size = new Size(107, 49);
-			btnSave.TabIndex = 1;
-			btnSave.Text = "Save PDF";
-			btnSave.UseVisualStyleBackColor = true;
-			btnSave.Visible = false;
-			btnSave.Click += btnSave_Click;
-			// 
-			// btnPrint
-			// 
-			btnPrint.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			btnPrint.Location = new Point(551, 744);
-			btnPrint.Name = "btnPrint";
-			btnPrint.Size = new Size(107, 49);
-			btnPrint.TabIndex = 2;
-			btnPrint.Text = "Print";
-			btnPrint.UseVisualStyleBackColor = true;
-			btnPrint.Visible = false;
-			btnPrint.Click += btnPrint_Click;
+			containerPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+			containerPanel.AutoScroll = true;
+			containerPanel.Controls.Add(rv);
+			containerPanel.Location = new Point(0, 0);
+			containerPanel.Name = "containerPanel";
+			containerPanel.Size = new Size(1081, 1065);
+			containerPanel.TabIndex = 1;
 			// 
 			// rv
 			// 
-			rv.Location = new Point(12, 12);
+			rv.Location = new Point(0, 0);
 			rv.Name = "ReportViewer";
 			rv.ServerReport.BearerToken = null;
-			rv.Size = new Size(784, 1000);
+			rv.Size = new Size(799, 1030);
 			rv.TabIndex = 0;
 			// 
 			// frmReportViewer
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
-			ClientSize = new Size(799, 1030);
-			Controls.Add(rv);
-			Controls.Add(btnSave);
-			Controls.Add(btnPrint);
+			ClientSize = new Size(1081, 1065);
+			Controls.Add(containerPanel);
 			Name = "frmReportViewer";
 			Text = "Salary Certificate Report";
+			WindowState = FormWindowState.Maximized;
 			Load += frmReportViewer_Load;
+			containerPanel.ResumeLayout(false);
 			ResumeLayout(false);
 		}
 
 		#endregion
-
-		private Button btnSave;
-		private Button btnPrint;
 		private Microsoft.Reporting.WinForms.ReportViewer rv;
+		private Panel containerPanel;
 	}
 }
