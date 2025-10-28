@@ -324,7 +324,9 @@
                     </Style>
                   </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>TextboxBody1</rd:DefaultName>
@@ -1504,7 +1506,7 @@
           </Border>
         </Style>
       </Body>
-      <Width>7.25in</Width>
+      <Width>7.55208in</Width>
       <Page>
         <PageHeader>
           <Height>0.64444in</Height>
@@ -1518,7 +1520,7 @@
               <Width>7in</Width>
               <Style>
                 <Border>
-                  <Color>LightGrey</Color>
+                  <Color>Gray</Color>
                   <Style>Solid</Style>
                 </Border>
               </Style>
@@ -1619,7 +1621,7 @@
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
-                  <Color>LightGrey</Color>
+                  <Color>Gray</Color>
                   <Style>Solid</Style>
                 </Border>
               </Style>
